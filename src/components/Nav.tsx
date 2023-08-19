@@ -30,7 +30,7 @@ export const Nav = () => {
       </div>
 
       <div
-        className={`${hidden} md:hidden absolute top-0 left-0 w-full h-screen bg-[--primary]`}
+        className={`${hidden} md:hidden absolute top-0 left-0 z-10 w-full h-screen bg-[--primary]`}
       >
         <button onClick={toggleMenu}>
           <TfiClose size="24px" className="absolute top-10 right-10" />

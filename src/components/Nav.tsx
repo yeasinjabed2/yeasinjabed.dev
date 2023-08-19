@@ -1,4 +1,5 @@
 "use client";
+import { navLinks } from "@/data/navlinks";
 import { poppins } from "@/styles/fonts";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -6,45 +7,28 @@ import { useState } from "react";
 import { CiMenuFries } from "react-icons/ci";
 import { TfiClose } from "react-icons/tfi";
 
-const navLinks = [
-  {
-    title: "Home",
-    path: "/",
-  },
-  {
-    title: "Works",
-    path: "/works",
-  },
-  {
-    title: "Skills",
-    path: "/skills",
-  },
-  {
-    title: "Blogs",
-    path: "/blogs",
-  },
-  {
-    title: "Contact",
-    path: "/contact",
-  },
-];
-
 export const Nav = () => {
   const pathName = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
   const hidden = isMenuOpen ? "" : "hidden";
 
+  const pageTitle = navLinks.find((link) => link.path === pathName)?.title;
+
   return (
     <nav className={poppins.className}>
       <div
-        className="flex justify-end p-10 md:hidden"
+        className="flex justify-between p-10 md:hidden"
         onClick={() => console.log("click")}
       >
+        <Link href="/" className="font-bold">
+          {pageTitle}
+        </Link>
         <button onClick={toggleMenu}>
           <CiMenuFries size="24px" />
         </button>
       </div>
+
       <div
         className={`${hidden} md:hidden absolute top-0 left-0 w-full h-screen bg-[--primary]`}
       >
@@ -60,7 +44,7 @@ export const Nav = () => {
               <li key={link.path}>
                 <Link
                   href={link.path}
-                  className={`py-4 relative ${isActive ? "active" : ""}`}
+                  className={`py-3 relative ${isActive ? "active" : ""}`}
                   onClick={toggleMenu}
                 >
                   {link.title}
@@ -71,7 +55,7 @@ export const Nav = () => {
         </ul>
       </div>
 
-      <ul className="desktop hidden md:flex items-center justify-center gap-14 text-base py-10">
+      <ul className="desktop hidden md:flex items-center justify-center gap-16 text-base py-10">
         {navLinks.map((link) => {
           const isActive = pathName === link.path;
 
@@ -79,7 +63,7 @@ export const Nav = () => {
             <li key={link.path}>
               <Link
                 href={link.path}
-                className={`py-4 relative ${isActive ? "active" : ""}`}
+                className={`py-3 relative ${isActive ? "active" : ""}`}
               >
                 {link.title}
               </Link>

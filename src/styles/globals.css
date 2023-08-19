@@ -58,3 +58,39 @@ nav ul.desktop li a:hover::before {
   background: var(--active);
   transition: all 0.2s ease-in-out;
 }
+
+.mainLayout{
+  width: 50%;
+  margin: 0 auto;
+}
+
+@media (max-width: 1280px) {
+  .mainLayout{
+    width: 60%;
+  }
+}
+
+@media (max-width: 1180px) {
+  .mainLayout{
+    width: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainLayout{
+    width: 90%;
+  }
+}
+
+@media (max-width: 640px) {
+  .mainLayout{
+    width: 80%;
+  }
+}
+
+.tech-tag {
+  border: 1px solid var(--text-secondary);
+  border-radius: 50px;
+  padding: 0 10px;
+  color: var(--text-secondary);
+}

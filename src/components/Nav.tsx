@@ -32,9 +32,8 @@ const navLinks = [
 export const Nav = () => {
   const pathName = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const toggleMenu = () => console.log("toggle");
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
   const hidden = isMenuOpen ? "" : "hidden";
-  console.log(hidden);
 
   return (
     <nav className={poppins.className}>
@@ -42,15 +41,16 @@ export const Nav = () => {
         className="flex justify-end p-10 md:hidden"
         onClick={() => console.log("click")}
       >
-        <button onClick={() => console.log("click")}>
-          <CiMenuFries size="24px" onClick={() => console.log("click")} />
+        <button onClick={toggleMenu}>
+          <CiMenuFries size="24px" />
         </button>
-        <button onClick={() => console.log("click")}>fasdf</button>
       </div>
       <div
         className={`${hidden} md:hidden absolute top-0 left-0 w-full h-screen bg-[--primary]`}
       >
-        <TfiClose size="24px" className="absolute top-10 right-10" />
+        <button onClick={toggleMenu}>
+          <TfiClose size="24px" className="absolute top-10 right-10" />
+        </button>
 
         <ul className="w-full h-screen flex flex-col gap-10 font-light text-2xl items-center justify-center">
           {navLinks.map((link) => {
@@ -61,6 +61,7 @@ export const Nav = () => {
                 <Link
                   href={link.path}
                   className={`py-4 relative ${isActive ? "active" : ""}`}
+                  onClick={toggleMenu}
                 >
                   {link.title}
                 </Link>

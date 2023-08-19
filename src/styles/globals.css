@@ -3,25 +3,58 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --primary: #151B25;
+  --active: #3ED88E;
+  --active-70: rgba(62, 216, 142, 0.8);
+  --text-primary: rgba(255, 255, 255, 0.9);
+  --text-secondary: rgba(255, 255, 255, 0.7);
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--text-secondary);
+  background: var(--primary);
+}
+
+.radial-gradient {
+  background: rgb(217,217,217);
+  background: radial-gradient(circle, rgba(217, 217, 217, 0.08) 0%, rgba(255,255,255,0) 100%);
+}
+
+.small-divider{
+  height: 20px;
+  width: 1px;
+  rotate: 20deg;
+  background: rgb(217,217,217);
+background: linear-gradient(180deg, rgba(217,217,217,0) 0%, rgba(62,216,142,0.60) 50%, rgba(255,255,255,0) 100%);
+
+}
+
+.active {
+  color: var(--active);
+  position: relative;
+}
+
+.active::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 4px;
+  background: var(--active);
+}
+
+nav ul.desktop li a:hover {
+  color: var(--active);
+}
+
+nav ul.desktop li a:hover::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--active);
+  transition: all 0.2s ease-in-out;
 }

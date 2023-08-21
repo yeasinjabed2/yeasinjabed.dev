@@ -1,7 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 import { projects } from "@/data/projects";
 import { NavLayout } from "@/layout/NavLayout";
-import Image from "next/image";
 import { ReactNode } from "react";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const Works = () => {
   return (
@@ -11,10 +13,20 @@ const Works = () => {
           className="flex md:flex-row flex-col justify-between gap-6"
           key={project.id}
         >
-          <div className="md:w-6/12 w-12/12 h-[240px] md:h-auto bg-[--text-secondary] rounded-md">
-            {project.cover && (
-              <Image src={project.cover} alt={project.title} layout="fill" />
-            )}
+          <div className="md:w-6/12 w-12/12 h-[240px] md:h-auto md:max-h-[320px] lg:max-h-[250px] bg-[--text-secondary] rounded-lg overflow-hidden">
+            <PhotoProvider>
+              {project.images.map((image) => (
+                <PhotoView
+                  key={image}
+                  src={`http://localhost:3000/api/images?name=${image}.png`}
+                >
+                  <img
+                    src={`http://localhost:3000/api/images?name=${image}.png`}
+                    alt={project.title}
+                  />
+                </PhotoView>
+              ))}
+            </PhotoProvider>
           </div>
           <div className="flex flex-col md:w-6/12 w-12/12 pb-5">
             <h1 className="text-2xl font-bold">{project.title}</h1>

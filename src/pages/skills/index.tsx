@@ -6,7 +6,7 @@ import { ReactNode } from "react";
 
 const Skills = () => {
   return (
-    <div className={oxanium.className + " relative mt-10"}>
+    <div className={oxanium.className + " relative mt-10 pb-20"}>
       <span className="about-me">About Me</span>
       <div className="about-section  border-2 border-[--active-40] rounded-lg flex space-between relative">
         <div className={poppins.className + " about-text"}>
@@ -101,7 +101,6 @@ const frontendSkills = [
   "Next.js",
   "JWT",
   "Webpack",
-  "Babel",
   "Redux",
   "Redux Toolkit",
   "React Router",
@@ -116,6 +115,8 @@ const backendSkills = [
   "Express",
   "MongoDB",
   "REST APIs",
+  "Design patterns",
+  "OOP",
   "Socket.io",
   "Docker",
   "Git",
@@ -123,4 +124,5 @@ const backendSkills = [
   "PM2",
   "Postfix",
   "Linux",
+  "Vim",
 ];

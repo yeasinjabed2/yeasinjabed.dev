@@ -4,10 +4,13 @@ import { AiFillGithub, AiFillLinkedin, AiOutlineTwitter } from "react-icons/ai";
 import { BsDownload, BsFacebook } from "react-icons/bs";
 
 export default function Home() {
+  const handleDownloadPDF = () => {
+    window.open("/api/Yeasin_Hossain_Resume.pdf", "_blank");
+  };
   return (
     <main className={oxanium.className}>
       <div className="flex justify-center items-center h-screen radial-gradient">
-        <div className="flex flex-col gap-3 ">
+        <div className="flex flex-col gap-3 pb-20 lg:pb-0">
           <h4 className="text-lg font-semibold text-[--active]">
             Hi, I&apos;m
           </h4>
@@ -67,7 +70,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute bottom-10 left-10 hover:cursor-pointer hover:translate-y-[-5px] transition">
+        <div
+          className="absolute bottom-10 left-10 hover:cursor-pointer hover:translate-y-[-5px] transition"
+          onClick={handleDownloadPDF}
+        >
           <div className="flex gap-3">
             <BsDownload size="20px" />
             <h5 className="text-base text-[--text-secondary] font-light">

@@ -18,10 +18,10 @@ const Works = () => {
               {project.images.map((image) => (
                 <PhotoView
                   key={image}
-                  src={`http://localhost:3000/api/images?name=${image}.png`}
+                  src={`https://yeasinjabed.dev/api/images?name=${image}.png`}
                 >
                   <img
-                    src={`http://localhost:3000/api/images?name=${image}.png`}
+                    src={`https://yeasinjabed.dev/api/images?name=${image}.png`}
                     alt={project.title}
                   />
                 </PhotoView>

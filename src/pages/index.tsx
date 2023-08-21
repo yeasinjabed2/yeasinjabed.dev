@@ -5,7 +5,7 @@ import { BsDownload, BsFacebook } from "react-icons/bs";
 
 export default function Home() {
   const handleDownloadPDF = () => {
-    window.open("/api/Yeasin_Hossain_Resume.pdf", "_blank");
+    window.open("https://yeasinjabed.dev/api/Yeasin_Hossain_Resume.pdf", "_blank");
   };
   return (
     <main className={oxanium.className}>

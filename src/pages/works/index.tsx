@@ -13,7 +13,7 @@ const Works = () => {
           className="flex md:flex-row flex-col justify-between gap-6"
           key={project.id}
         >
-          <div className="md:w-6/12 w-12/12 h-[240px] md:h-auto md:max-h-[320px] lg:max-h-[250px] bg-[--text-secondary] rounded-lg overflow-hidden">
+          <div className="md:w-6/12 w-12/12 h-[240px] md:h-auto md:max-h-[320px] lg:max-h-[250px] bg-[--text-secondary] rounded-lg overflow-hidden hover:cursor-zoom-in hover:scale-105">
             <PhotoProvider>
               {project.images.map((image) => (
                 <PhotoView
